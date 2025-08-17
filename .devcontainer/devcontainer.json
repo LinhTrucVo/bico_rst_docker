@@ -1,8 +1,21 @@
 {
   // =============================================================================
+  // ⚠️  USER CONFIGURATION REQUIRED - MODIFY THESE PATHS FOR YOUR SETUP  ⚠️
+  // =============================================================================
+  "mounts": [
+    // 📁 UPDATE THIS PATH
+    "source=<PROJECT_DIRECTORY>,target=/mnt/project,type=bind",
+    // 📁 UPDATE THIS PATH
+    "source=<DOCUMENT_BUILT_DIRECTORY>,target=/mnt/_build,type=bind"
+  ],
+  // 📁 UPDATE THIS PATH
+  "workspaceFolder": "<PROJECT_DOCUMENTATION_DIRECTORY>",  
+
+
+  // =============================================================================
   // Bico RST Documentation Development Container Configuration
   // =============================================================================
-  
+
   // Container identification
   "name": "Bico rst Docker",
   
@@ -17,47 +30,23 @@
   "runArgs": [
     "--name", "bico-rst-container"
   ],
-  
-  // =============================================================================
-  // ⚠️  USER CONFIGURATION REQUIRED - MODIFY THESE PATHS FOR YOUR SETUP  ⚠️
-  // =============================================================================
-  // These paths must be updated to match your local directory structure:
-  // - sphinx_test: Your documentation source directory
-  // - doc_build: Your documentation build output directory
-  // =============================================================================
-  
-  // Volume configuration
-  "mounts": [
-    // 📁 UPDATE THIS PATH: Replace with your local project source directory
-    "source=C:\\Users\\bico\\Desktop\\sphinx_test,target=/mnt/project,type=bind",
-    // 📁 UPDATE THIS PATH: Replace with your local documentation build directory  
-    "source=C:\\Users\\bico\\Desktop\\doc_build,target=/mnt/_build,type=bind"
-  ],
-  // Documentation Workspace 
-  //  /mnt/project is the mounted source directory
-  //  /docs is the working directory for the documentation
-  // 📁 UPDATE the documentation working directory 
-  "workspaceFolder": "/mnt/project/docs",
-  
-  // Initialization commands
-  "postCreateCommand": "mkdir -p /mnt/project && mkdir -p /mnt/_build",
+    
+  // Container environment variables
+  "containerEnv": {
+    "DOCUTILSCONFIG": ""
+  },
   
   // VS Code customizations
   "customizations": {
     "vscode": {
-      // Essential extensions for RST documentation development
       "extensions": [
         "swyddfa.esbonio",
         "lextudio.restructuredtext-pack",
-        "jebbs.plantuml"
+        "jebbs.plantuml",
+        "ms-vscode.cmake-tools"
       ],
-      
-      // Development environment settings
       "settings": {
-        // Python configuration
         "python.defaultInterpreterPath": "/usr/bin/python",
-        
-        // Esbonio (Sphinx language server) configuration
         "esbonio.server.pythonPath": "/usr/bin/python",
         "esbonio.sphinx.confDir": "",
         "esbonio.sphinx.buildDir": "/mnt/_build"
