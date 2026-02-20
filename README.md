@@ -62,16 +62,10 @@ ENV MY_PROXY_PASSWORD=...
   "mounts": [
     // 📁 UPDATE THIS PATH
     "source=<PROJECT_DIRECTORY>,target=/mnt/project,type=bind",
-    // 📁 UPDATE THIS PATH
-    "source=<DOCUMENT_BUILT_DIRECTORY>,target=/mnt/_build,type=bind"
   ],
-  // 📁 UPDATE THIS PATH
-  "workspaceFolder": "<PROJECT_DOCUMENTATION_DIRECTORY>",  
 ```
 
 Replace **<PROJECT_DIRECTORY>** with the absolute path to your project folder on your local machine (not in the container).
-Replace **<DOCUMENT_BUILT_DIRECTORY>** with the absolute path to the folder on your local machine (not in the container) where your documentation build output is stored.
-Replace **<PROJECT_DOCUMENTATION_DIRECTORY>** with the absolute path to the folder in container that contain your documentation source files (usually is the sub folder in the project folder).
 
 ### 4. Open in VS Code
 

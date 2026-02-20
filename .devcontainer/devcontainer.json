@@ -4,12 +4,8 @@
   // =============================================================================
   "mounts": [
     // 📁 UPDATE THIS PATH
-    "source=<PROJECT_DIRECTORY>,target=/mnt/project,type=bind",
-    // 📁 UPDATE THIS PATH
-    "source=<DOCUMENT_BUILT_DIRECTORY>,target=/mnt/_build,type=bind"
+    "source=/home/vor5hc/sandbox/Bico_Protocol_Bridge,target=/workspaces/bico_rst_docker/project_doc,type=bind",
   ],
-  // 📁 UPDATE THIS PATH
-  "workspaceFolder": "<PROJECT_DOCUMENTATION_DIRECTORY>",  
 
 
   // =============================================================================
@@ -21,7 +17,7 @@
   
   // Build configuration
   "build": {
-    "dockerfile": "Dockerfile",
+    "dockerfile": "../Dockerfile",
     "context": ".",
     "args": {}
   },
@@ -30,11 +26,10 @@
   "runArgs": [
     "--name", "bico-rst-container"
   ],
-    
-  // Container environment variables
-  "containerEnv": {
-    "DOCUTILSCONFIG": ""
-  },
+
+  // Apply executable to all sh files in tool/
+  "postCreateCommand": "/postCreateCommand.sh",
+  "postStartCommand": "/entrypoint.sh",
   
   // VS Code customizations
   "customizations": {
@@ -49,7 +44,7 @@
         "python.defaultInterpreterPath": "/usr/bin/python",
         "esbonio.server.pythonPath": "/usr/bin/python",
         "esbonio.sphinx.confDir": "",
-        "esbonio.sphinx.buildDir": "/mnt/_build"
+        "esbonio.sphinx.buildDir": "/workspaces/bico_rst_docker/_build"
       }
     }
   }
