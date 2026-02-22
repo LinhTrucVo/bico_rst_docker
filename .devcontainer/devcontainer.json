@@ -17,14 +17,15 @@
   
   // Build configuration
   "build": {
-    "dockerfile": "../Dockerfile",
+    "dockerfile": "Dockerfile",
     "context": ".",
     "args": {}
   },
   
   // Container runtime configuration
   "runArgs": [
-    "--name", "bico-rst-container"
+    "--name", "bico-rst-container-personal",
+    "--privileged",
   ],
 
   // Apply executable to all sh files in tool/
@@ -38,12 +39,13 @@
         "swyddfa.esbonio",
         "lextudio.restructuredtext-pack",
         "jebbs.plantuml",
-        "ms-vscode.cmake-tools"
+        "ms-vscode.cmake-tools",
+        "ms-vscode.live-server"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/bin/python",
         "esbonio.server.pythonPath": "/usr/bin/python",
-        "esbonio.sphinx.confDir": "",
+        "esbonio.sphinx.confDir": "/workspaces/bico_rst_docker/project_doc",
         "esbonio.sphinx.buildDir": "/workspaces/bico_rst_docker/_build"
       }
     }
