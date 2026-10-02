@@ -85,7 +85,7 @@ Replace **<PROJECT_DIRECTORY>** with the absolute path to your project folder on
 
 **Building documentation manually:**
 ```bash
-cd /workspaces/bico_rst_docker/project_doc && sphinx-build -b html . ../_build/html
+cd /workspaces/bico_rst_docker/project_doc/docs && sphinx-build -b html . ../_build/html
 ```
 
 
