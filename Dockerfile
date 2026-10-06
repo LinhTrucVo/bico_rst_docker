@@ -19,7 +19,8 @@ RUN apt-get update && \
     apt-get install -y \
         default-jre \
         graphviz \
-        doxygen
+        doxygen \
+        plantuml
 
 # Clean up apt cache to reduce image size
 RUN apt-get clean && \
@@ -69,8 +70,8 @@ WORKDIR /workspaces
 #     -L -o /usr/bin/plantuml.jar \
 #     https://github.com/plantuml/plantuml/releases/download/v1.2025.3/plantuml-1.2025.3.jar
 # If not using proxy, use the following line instead
-RUN curl -L -o /usr/bin/plantuml.jar \
-    https://github.com/plantuml/plantuml/releases/download/v1.2025.3/plantuml-1.2025.3.jar
+# RUN curl -L -o /usr/bin/plantuml.jar \
+#     https://github.com/plantuml/plantuml/releases/download/v1.2025.3/plantuml-1.2025.3.jar
 
 # CMake 3.22.2 installation
 RUN wget -P /workspaces/cmake_3.22.2 https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz && \
